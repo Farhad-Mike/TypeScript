@@ -6,7 +6,7 @@ let arrNum: number[] = [1, 2, 3];
 let arrNum_2: Array<number> = [1, 2, 3];
 let arrStr: string[] = ['s', 't', 'r'];
 let arrStr_2: Array<string> = ['s', 't', 'r'];
-let arrAny: any[] = [1, 'str', true]; // Создает массив самый обычный массив бех типизации
+let arrAny: any[] = [1, 'str', true]; // Создает массив самый обычный массив без типизации
 let tupl: [string, number, boolean] = ['str', 12, true]; // Tuple имеет фиксированную длину и может иметь иметь разные типы элементов в зависимости от позиции.
 
 enum Num {zero, one, two};  // Тип enum - это более удобный способ задания понятных имен набору численных значений.
