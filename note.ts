@@ -2,12 +2,25 @@ let bool: boolean = true;
 let num: number = 0xf00d;
 let str: string = 'name';
 let mlstr: string = `string`;
+let mixed: number|boolean; // Позволит задавать два типа значений
 let arrNum: number[] = [1, 2, 3];
 let arrNum_2: Array<number> = [1, 2, 3];
 let arrStr: string[] = ['s', 't', 'r'];
 let arrStr_2: Array<string> = ['s', 't', 'r'];
+let arrMix: (string|number)[] = []; // Теперь можно использовать 2 типа значений внутри массива.
 let arrAny: any[] = [1, 'str', true]; // Создает массив самый обычный массив без типизации
 let tupl: [string, number, boolean] = ['str', 12, true]; // Tuple имеет фиксированную длину и может иметь иметь разные типы элементов в зависимости от позиции.
+let obj: object = {
+    name: 'Farhad',
+    wife: 'Ayten',
+    daughter: 'Liza'
+}
+
+let obj_1: {    // Задать какие типы и сколько свойств будет у объекта
+    name: string,
+    age: number,
+    married: boolean,
+}
 
 enum Num {zero, one, two};  // Тип enum - это более удобный способ задания понятных имен набору численных значений.
 let num: Num = Num.zero;    // Result: 0;
