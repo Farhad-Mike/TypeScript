@@ -35,7 +35,8 @@ function getUserLog(user: objWithName) {}; // Принимает объект us
 let logDetail: (obj: {name: string, age: number}) => void; // По этому макету будет создана функция которая выглядит след образом. (user: {name: string, age: number}): void => {};
 
 
-
+const anchor = document.querySelector('a')!; // Знак ! ты как бы говоришь typescript что: "Я знаю что этот элемент существует на странице и это 100%"
+const form = document.querySelector('.new-forms') as HTMLFormElement; // То есть ты указываешь что это элемент form и в дальнейшем ты спокойно пользуешься подсказками typescript
 
 
 
