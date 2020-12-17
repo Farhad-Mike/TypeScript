@@ -1,5 +1,5 @@
 let bool: boolean = true;
-let num: number = 0xf00d;
+let digit: number = 0xf00d;
 let str: string = 'name';
 let mlstr: string = `string`;
 let not: void = null;
@@ -38,6 +38,82 @@ let logDetail: (obj: {name: string, age: number}) => void; // По этому м
 const anchor = document.querySelector('a')!; // Знак ! ты как бы говоришь typescript что: "Я знаю что этот элемент существует на странице и это 100%"
 const form = document.querySelector('.new-forms') as HTMLFormElement; // То есть ты указываешь что это элемент form и в дальнейшем ты спокойно пользуешься подсказками typescript
 
+
+
+
+class Invoice {
+    client: string;
+    details: string;
+    amount: number;
+
+    constructor(c: string, d: string, a: number) {
+        this.client = c;
+        this.details = d;
+        this.amount = a;
+    }
+
+    format() {
+        return `${this.client} owes ${this.details} for $${this.amount}`;
+    }
+}
+const invOne = new Invoice('Mario', 'create website', 300);
+const invTwo = new Invoice('Luigi', 'create website', 500);
+const INVOICES: Invoice[] = [invOne, invTwo];
+
+
+class Invoice_2 {
+    readonly client: string;    // Снаружи можно только читать.
+    private details: string;    // Снаружи недоступен вообще.
+    public amount: number;      // Полный доступ снаружи.
+
+    constructor(c: string, d: string, a: number) {
+        this.client = c;
+        this.details = d;
+        this.amount = a;
+    }
+
+    format() {
+        return `${this.client} owes ${this.details} for $${this.amount}`;
+    }
+}
+
+class Invoice_3 {
+    constructor(
+        readonly client: string,    // Снаружи можно только читать.
+        private details: string,    // Снаружи недоступен вообще.
+        public amount: number       // Полный доступ снаружи.
+    ) {
+        this.client = client;
+        this.details = details;
+        this.amount = amount;
+    }
+
+    format() {
+        return `${this.client} owes ${this.details} for $${this.amount}`;
+    }
+}
+
+// <script type='module' src="./index.js" ></script>    // type='module' позволяет использовать возможность es2015(es6)  import and export.
+// import { Invoice } from './classes/Invoice.js'       // Обязательно .js потому что после компиляции остается .js и браузер понимает только это формат
+
+
+interface IsPerson {    // Создать интерфейс и при использовании этого интерфейса нельзя его нарушать.
+    name: string;
+    age: number;
+    speak(a: string): void;
+    spend(a: number): number;
+}
+let me: IsPerson = {
+    name: 'Farhad',
+    age: 27,
+    speak(word: string) {
+        console.log(word);
+    },
+    spend(amount) {
+        console.log(amount);
+        return amount;
+    }
+}
 
 
 
