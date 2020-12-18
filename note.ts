@@ -82,11 +82,7 @@ class Invoice_3 {
         readonly client: string,    // Снаружи можно только читать.
         private details: string,    // Снаружи недоступен вообще.
         public amount: number       // Полный доступ снаружи.
-    ) {
-        this.client = client;
-        this.details = details;
-        this.amount = amount;
-    }
+    ) {};
 
     format() {
         return `${this.client} owes ${this.details} for $${this.amount}`;
@@ -97,7 +93,7 @@ class Invoice_3 {
 // import { Invoice } from './classes/Invoice.js'       // Обязательно .js потому что после компиляции остается .js и браузер понимает только это формат
 
 
-interface IsPerson {    // Создать интерфейс и при использовании этого интерфейса нельзя его нарушать.
+interface IsPerson {    // Создать интерфейс. При создании объекта через этот интерфейс нельзя нарушать никак интерфейс.  При создании класса через этот интерфейс можно добавлять дополнительные методы и свойства в класс помимо самого интерфейса.
     name: string;
     age: number;
     speak(a: string): void;
