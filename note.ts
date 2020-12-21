@@ -132,6 +132,10 @@ let onStr: 'hello' | 'bye'; // То есть только 'hello' | 'bye' мож
 onStr = 'hello';
 
 
+function doSome <T extends {name: string}> (obj: T) { // То есть свойство или переменная name может быть, а может и не быть, но изза  она обязательно должна быть строкой. Можно просто использовать <T>.
+    return {age: 27, name: 'Farhad'}; 
+}
+
 enum Num {zero, one, two};  // Тип enum - это более удобный способ задания понятных имен набору численных значений.
 let num: Num = Num.zero;    // Result: 0;
 let two: string = Num[2];   // Result: 'two'; // Возвращает название числа которое ты задавал.
