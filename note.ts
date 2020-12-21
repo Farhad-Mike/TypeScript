@@ -4,7 +4,7 @@ let str: string = 'name';
 let mlstr: string = `string`;
 let not: void = null;
 let not_2: void = undefined;
-let mixed: number|boolean; // Позволит задавать два типа значений
+let mixed: number | boolean; // Позволит задавать два типа значений
 let arrNum: number[] = [1, 2, 3];
 let arrNum_2: Array<number> = [1, 2, 3];
 let arrStr: string[] = ['s', 't', 'r'];
@@ -16,7 +16,7 @@ let func: Function = () => {console.log('hello, world')};
 let func_1: Function = (a: number, b: string, c: number | string = 10, d: boolean = false, i?: boolean) {}; // Параметры а и b обязательны и должны быть числом и строкой. Параметр с необезательный и по умолчанию задается 10, а так же должен быть строкой или числом. Параметр d должен быть булевым и необязательный, по умолчанию задается false. Параметр i необязательный.
 let func_2 = (a: number, b: number): number => {}; // Это говорит о том что функция вернет тип number
 let func_3: (a: number, b:number) => void; // Это подготовительный макет. То есть при создании функции с названием func_3 нужно писать так func_3 = (uid: number, age: number) {console.log(uid * number)};
-let obj: object = {
+let obj: object = { 
     name: 'Farhad',
     wife: 'Ayten',
     daughter: 'Liza'
@@ -89,11 +89,13 @@ class Invoice_3 {
     }
 }
 
+
+
 // <script type='module' src="./index.js" ></script>    // type='module' позволяет использовать возможность es2015(es6)  import and export.
 // import { Invoice } from './classes/Invoice.js'       // Обязательно .js потому что после компиляции остается .js и браузер понимает только это формат
 
 
-interface IsPerson {    // Создать интерфейс. При создании объекта через этот интерфейс нельзя нарушать никак интерфейс.  При создании класса через этот интерфейс можно добавлять дополнительные методы и свойства в класс помимо самого интерфейса.
+interface IsPerson {    // Создать интерфейс. При создании объекта через этот интерфейс нельзя нарушать никак интерфейс.  При создании класса через этот интерфейс можно добавлять дополнительные методы и свойства в класс помимо самого интерфейса. class Invoice_4 implements IsPerson
     name: string;
     age: number;
     speak(a: string): void;
@@ -111,6 +113,23 @@ let me: IsPerson = {
     }
 }
 
+interface Resource<T> {
+    uid: number;
+    name: string;
+    some: T;
+    data: T;
+}
+let gorgo: Resource<string> = {
+    uid: 2,
+    name: 'Gorgo',
+    some: 'str',
+    data: 'hello',
+}
+
+
+
+let onStr: 'hello' | 'bye'; // То есть только 'hello' | 'bye' может быть присвоено этой строке. Тоже самое можно сделать и с числами и другими типами данных
+onStr = 'hello';
 
 
 enum Num {zero, one, two};  // Тип enum - это более удобный способ задания понятных имен набору численных значений.
