@@ -11,7 +11,7 @@ let arrStr: string[] = ['s', 't', 'r'];
 let arrStr_2: Array<string> = ['s', 't', 'r'];
 let arrMix: (string|number)[] = []; // Теперь можно использовать 2 типа значений внутри массива.
 let arrAny: any[] = [1, 'str', true]; // Создает массив самый обычный массив без типизации
-let tupl: [string, number, boolean] = ['str', 12, true]; // Tuple имеет фиксированную длину и может иметь иметь разные типы элементов в зависимости от позиции.
+ let tupl: [string, number, boolean] = ['str', 12, true]; // Tuple имеет фиксированную длину и может иметь иметь разные типы элементов в зависимости от позиции.
 let func: Function = () => {console.log('hello, world')};
 let func_1: Function = (a: number, b: string, c: number | string = 10, d: boolean = false, i?: boolean) {}; // Параметры а и b обязательны и должны быть числом и строкой. Параметр с необезательный и по умолчанию задается 10, а так же должен быть строкой или числом. Параметр d должен быть булевым и необязательный, по умолчанию задается false. Параметр i необязательный.
 let func_2 = (a: number, b: number): number => {}; // Это говорит о том что функция вернет тип number
@@ -135,6 +135,13 @@ onStr = 'hello';
 function doSome <T extends {name: string}> (obj: T) { // То есть свойство или переменная name может быть, а может и не быть, но изза  она обязательно должна быть строкой. Можно просто использовать <T>.
     return {age: 27, name: 'Farhad'}; 
 }
+
+
+
+
+
+
+
 
 enum Num {zero, one, two};  // Тип enum - это более удобный способ задания понятных имен набору численных значений.
 let num: Num = Num.zero;    // Result: 0;
